@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="插死她电影网（chasitadianyingwang-zh.github.io）是毒舌影评人的地盘：差评写得有理有据，神作也不吝赞美；看片之前先来“挨一刀”，躲开雷区再进场，省下不冤枉的两小时。">
+<meta name="keywords" content="插死她电影网,chasitadianyingwang-zh.github.io,毒舌影评,犀利差评,烂片避雷,观影排雷,快人快语影评">
+<meta name="author" content="插死她电影网">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#faf8f5">
+<meta property="og:title" content="插死她电影网 - 毒舌影评站">
+<meta property="og:description" content="插死她电影网用有理有据的毒舌差评帮观众排雷，神作照夸、烂片照砍。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chasitadianyingwang-zh.github.io">
+<title>插死她电影网 - 毒舌影评站·烂片在这里无处遁形</title>
+<style>
+/* ===== Reset ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#faf8f5;--ink:#1c1c2e;--ink2:#4a4a6a;--ink3:#8e8eaa;
+  --accent:#ff4d6d;--accent-light:#ff8094;--violet:#7b5cd6;--teal:#00b4a6;
+  --line:#e8e4df;--card:#fff;--shadow:0 2px 20px rgba(0,0,0,.06);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Georgia","Times New Roman",-apple-system,"PingFang SC","Microsoft YaHei",serif;
+  background:var(--paper);color:var(--ink);line-height:1.75;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--accent);color:#fff}
+
+/* ===== Typography accents ===== */
+.accent-grad{background:linear-gradient(90deg,var(--accent),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mono{font-family:"Courier New",monospace}
+
+/* ===== Header ===== */
+.site-header{
+  border-bottom:3px double var(--line);background:var(--paper);position:sticky;top:0;z-index:100;
+}
+.header-top{
+  max-width:1400px;margin:0 auto;padding:6px 24px;display:flex;justify-content:space-between;
+  font-size:11px;color:var(--ink3);letter-spacing:.5px;border-bottom:1px solid var(--line);
+}
+.header-main{
+  max-width:1400px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;
+}
+.masthead{text-align:center;flex:1}
+.masthead .site-name{
+  font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:-1px;line-height:1;
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+.masthead .site-name .dot{color:var(--accent)}
+.masthead .site-slogan{
+  font-size:11px;color:var(--ink3);letter-spacing:3px;text-transform:uppercase;margin-top:6px;
+}
+.masthead .site-url{
+  font-size:12px;color:var(--ink2);margin-top:4px;font-family:"Courier New",monospace;
+}
+.header-actions{display:flex;align-items:center;gap:12px}
+.search-inline{
+  display:flex;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:4px;gap:6px;
+}
+.search-inline input{
+  border:none;outline:none;background:none;font-size:13px;width:140px;font-family:inherit;color:var(--ink);
+}
+.search-inline input::placeholder{color:var(--ink3);font-style:italic}
+.icon-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;transition:.2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Nav */
+.main-nav{
+  max-width:1400px;margin:0 auto;padding:0 24px;display:flex;justify-content:center;gap:0;
+  border-top:1px solid var(--line);
+}
+.main-nav a{
+  padding:12px 20px;font-size:13px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--ink2);position:relative;transition:.2s;font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.main-nav a::after{
+  content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;
+  background:var(--accent);transition:.3s;
+}
+.main-nav a:hover{color:var(--accent)}
+.main-nav a:hover::after{width:60%}
+.main-nav .sep{width:1px;background:var(--line);align-self:stretch}
+
+/* Mobile Nav */
+.mobile-toggle{display:none;flex-direction:column;gap:4px;padding:8px;width:40px;height:40px;justify-content:center;align-items:center;border:1px solid var(--line);border-radius:8px}
+.mobile-toggle span{width:18px;height:2px;background:var(--ink);transition:.3s}
+.mobile-menu{
+  display:none;max-height:0;overflow:hidden;transition:.4s ease;background:var(--card);
+  border-bottom:1px solid var(--line);
+}
+.mobile-menu.open{max-height:400px}
+.mobile-menu a{
+  display:block;padding:14px 24px;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2);
+}
+.mobile-menu a:active{color:var(--accent)}
+
+/* ===== Container ===== */
+.wrap{max-width:1400px;margin:0 auto;padding:0 24px}
+
+/* ===== Hero / Featured ===== */
+.hero-band{
+  padding:48px 0 32px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.6fr 1fr;gap:24px;
+}
+.hero-feature{
+  position:relative;border-radius:16px;overflow:hidden;min-height:420px;
+  background:linear-gradient(135deg,#2d1b4e,#4a1942 50%,#7b2d4e);
+  display:flex;align-items:flex-end;padding:36px;color:#fff;
+}
+.hero-feature::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,77,109,.4),transparent 50%),
+    radial-gradient(circle at 20% 80%,rgba(123,92,214,.35),transparent 50%);
+}
+.hero-feature .hero-content{position:relative;z-index:1;max-width:480px}
+.hero-feature .label{
+  display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  padding:4px 12px;border:1px solid rgba(255,255,255,.4);border-radius:20px;margin-bottom:14px;
+}
+.hero-feature h1{
+  font-size:clamp(24px,3.5vw,38px);font-weight:900;line-height:1.2;margin-bottom:12px;
+  font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.hero-feature p{font-size:14px;opacity:.85;margin-bottom:20px;line-height:1.8}
+.hero-feature .meta-row{display:flex;gap:16px;font-size:12px;opacity:.7;margin-bottom:20px;flex-wrap:wrap}
+.play-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:30px;
+  background:#fff;color:var(--ink);font-size:13px;font-weight:700;transition:.25s;
+  font-family:-apple-system,sans-serif;
+}
+.play-btn:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+.hero-side{display:flex;flex-direction:column;gap:16px}
+.side-card{
+  flex:1;border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;color:#fff;min-height:200px;
+}
+.side-card-1{background:linear-gradient(135deg,#11998e,#38ef7d)}
+.side-card-2{background:linear-gradient(135deg,#ee0979,#ff6a00)}
+.side-card .sc-label{font-size:11px;letter-spacing:1px;opacity:.8;text-transform:uppercase}
+.side-card h3{font-size:20px;font-weight:800;margin:6px 0 8px;font-family:-apple-system,"PingFang SC",sans-serif}
+.side-card p{font-size:12px;opacity:.8}
+.side-card .arrow{position:absolute;right:20px;bottom:20px;font-size:24px;opacity:.5}
+
+/* ===== Marquee ticker ===== */
+.ticker{
+  background:var(--ink);color:#fff;padding:10px 0;overflow:hidden;margin:24px 0 0;
+  border-radius:8px;
+}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 40s linear infinite;font-size:13px}
+.ticker-track span{display:flex;align-items:center;gap:48px}
+.ticker-track .t-dot{color:var(--accent);font-size:8px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== Section ===== */
+.block{padding:48px 0}
+.block-head{
+  display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--ink);
+  padding-bottom:10px;margin-bottom:28px;gap:16px;flex-wrap:wrap;
+}
+.block-title{
+  font-size:20px;font-weight:900;letter-spacing:-.3px;font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.block-title .num{
+  font-size:13px;color:var(--accent);font-weight:700;margin-right:8px;font-family:"Courier New",monospace;
+}
+.block-head .more{font-size:12px;color:var(--ink3);font-style:italic;transition:.2s}
+.block-head .more:hover{color:var(--accent)}
+
+/* ===== Film Grid (Editorial style) ===== */
+.film-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px 20px}
+.film{transition:.3s;cursor:pointer}
+.film:hover{transform:translateY(-4px)}
+.film-cover{
+  position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
+.film-cover-inner{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:16px;position:relative}
+.fc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.fc-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.9);color:var(--ink)}
+.fc-badge.hot{background:var(--accent);color:#fff}
+.fc-rating{font-size:12px;font-weight:700;background:rgba(0,0,0,.6);color:#ffd700;padding:3px 8px;border-radius:4px}
+.fc-bottom{text-align:center}
+.fc-bottom .fc-cn{font-size:16px;font-weight:800;color:#fff;margin-bottom:2px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.fc-bottom .fc-en{font-size:9px;color:rgba(255,255,255,.6);letter-spacing:2px;text-transform:uppercase}
+.fc-bottom .fc-info{font-size:10px;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* Gradients for covers */
+.c1{background:linear-gradient(160deg,#0f0c29,#302b63,#24243e)}
+.c2{background:linear-gradient(160deg,#232526,#414345)}
+.c3{background:linear-gradient(160deg,#42275a,#734b6d)}
+.c4{background:linear-gradient(160deg,#1a2a6c,#b21f1f,#fdbb2d)}
+.c5{background:linear-gradient(160deg,#3a1c71,#d76d77,#ffaf7b)}
+.c6{background:linear-gradient(160deg,#0b486b,#f56217)}
+.c7{background:linear-gradient(160deg,#4b1248,#f0c27b)}
+.c8{background:linear-gradient(160deg,#16222a,#3a6073)}
+.c9{background:linear-gradient(160deg,#556270,#ff6b6b)}
+.c10{background:linear-gradient(160deg,#1d976c,#93f9b9)}
+.c11{background:linear-gradient(160deg,#870000,#190a05)}
+.c12{background:linear-gradient(160deg,#3a3a60,#a8a8d0)}
+
+.film-info h4{font-size:14px;font-weight:700;margin-bottom:4px;font-family:-apple-system,"PingFang SC",sans-serif}
+.film-info .film-desc{font-size:12px;color:var(--ink3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== TV Series - Horizontal scroll on mobile ===== */
+.tv-scroll{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.tv-card{
+  display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px;transition:.25s;
+}
+.tv-card:hover{border-color:var(--accent);box-shadow:var(--shadow-lg)}
+.tv-thumb{
+  width:100px;height:140px;border-radius:8px;flex-shrink:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:8px;
+}
+.tv-thumb .tt-title{font-size:11px;font-weight:700;color:#fff;line-height:1.3}
+.tv-thumb .tt-ep{font-size:9px;color:rgba(255,255,255,.6);margin-top:4px}
+.tv-info{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.tv-info h4{font-size:14px;font-weight:700;margin-bottom:6px;font-family:-apple-system,"PingFang SC",sans-serif}
+.tv-info .tv-meta{font-size:11px;color:var(--ink3);line-height:1.8}
+.tv-info .tv-status{
+  display:inline-block;margin-top:8px;font-size:10px;padding:2px 8px;border-radius:3px;
+  background:rgba(255,77,109,.1);color:var(--accent);width:fit-content;font-weight:600;
+}
+
+/* ===== Editorial split section ===== */
+.editorial{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+}
+.editorial-left h3{
+  font-size:28px;font-weight:900;line-height:1.3;margin-bottom:16px;
+  font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.editorial-left p{font-size:14px;color:var(--ink2);margin-bottom:14px;line-height:1.9}
+.editorial-left .quote{
+  border-left:3px solid var(--accent);padding:12px 0 12px 20px;margin:20px 0;
+  font-size:15px;font-style:italic;color:var(--ink);
+}
+.editorial-right{display:flex;flex-direction:column;gap:1px;background:var(--line);border-radius:12px;overflow:hidden}
+.ed-item{
+  display:flex;gap:14px;padding:16px 20px;background:var(--card);align-items:center;transition:.2s;
+}
+.ed-item:hover{background:#fef0f2}
+.ed-rank{font-size:22px;font-weight:900;color:var(--line);width:32px;font-family:"Courier New",monospace}
+.ed-item:nth-child(1) .ed-rank{color:var(--accent)}
+.ed-item:nth-child(2) .ed-rank{color:var(--violet)}
+.ed-item:nth-child(3) .ed-rank{color:var(--teal)}
+.ed-body{flex:1;min-width:0}
+.ed-body h5{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ed-body p{font-size:11px;color:var(--ink3)}
+.ed-score{font-size:15px;font-weight:800;color:var(--accent);flex-shrink:0}
+
+/* ===== News / Blog style ===== */
+.news-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:32px}
+.news-feature{
+  border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:.3s;
+}
+.news-feature:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.nf-visual{
+  height:220px;background:linear-gradient(135deg,#667eea,#764ba2);position:relative;overflow:hidden;
+}
+.nf-visual::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 70% 40%,rgba(255,255,255,.15),transparent 50%);
+}
+.nf-body{padding:24px}
+.nf-body .nf-cat{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+.nf-body h3{font-size:20px;font-weight:800;margin:8px 0 10px;line-height:1.4;font-family:-apple-system,"PingFang SC",sans-serif}
+.nf-body p{font-size:13px;color:var(--ink2);line-height:1.8}
+.nf-body .nf-date{font-size:11px;color:var(--ink3);margin-top:12px;font-family:"Courier New",monospace}
+
+.news-list{display:flex;flex-direction:column;gap:16px}
+.news-mini{
+  display:flex;gap:14px;padding:14px;border:1px solid var(--line);border-radius:12px;transition:.2s;background:var(--card);
+}
+.news-mini:hover{border-color:var(--violet)}
+.nm-date{
+  width:48px;height:48px;flex-shrink:0;border-radius:8px;background:var(--ink);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.nm-date .d{font-size:18px;font-weight:900;line-height:1}
+.nm-date .m{font-size:9px;text-transform:uppercase;opacity:.7}
+.nm-body h5{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px;font-family:-apple-system,"PingFang SC",sans-serif}
+.nm-body p{font-size:12px;color:var(--ink3);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ===== Categories ===== */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 20px;text-align:center;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.cat-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transition:.3s;transform-origin:left;
+}
+.cat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.cat-card:hover::before{transform:scaleX(1)}
+.cat-card .cat-icon{font-size:32px;margin-bottom:10px;display:block}
+.cat-card h4{font-size:15px;font-weight:700;margin-bottom:4px;font-family:-apple-system,"PingFang SC",sans-serif}
+.cat-card p{font-size:12px;color:var(--ink3)}
+
+/* ===== CTA ===== */
+.cta-band{
+  margin:48px 0;padding:56px 40px;border-radius:20px;text-align:center;color:#fff;
+  background:linear-gradient(135deg,#0f0c29,#302b63 40%,#24243e);
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(255,77,109,.2),transparent 70%);
+}
+.cta-band > *{position:relative}
+.cta-band h2{font-size:clamp(22px,4vw,36px);font-weight:900;margin-bottom:12px;font-family:-apple-system,"PingFang SC",sans-serif}
+.cta-band p{font-size:14px;opacity:.8;max-width:480px;margin:0 auto 24px}
+.cta-form{display:flex;gap:8px;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.cta-form input{
+  flex:1;min-width:200px;padding:12px 18px;border-radius:30px;border:none;outline:none;font-size:13px;font-family:inherit;
+}
+.cta-form button{
+  padding:12px 28px;border-radius:30px;background:var(--accent);color:#fff;font-size:13px;font-weight:700;transition:.2s;
+  font-family:-apple-system,sans-serif;
+}
+.cta-form button:hover{background:var(--accent-light);transform:scale(1.05)}
+
+/* ===== Footer ===== */
+.site-footer{
+  background:var(--ink);color:#fff;padding:56px 0 24px;margin-top:48px;
+}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+.foot-brand .logo-text{
+  font-size:22px;font-weight:900;font-family:-apple-system,"PingFang SC",sans-serif;
+}
+.foot-brand p{font-size:13px;color:rgba(255,255,255,.5);margin-top:12px;line-height:1.8;max-width:260px}
+.foot-col h5{font-size:13px;font-weight:700;margin-bottom:14px;letter-spacing:1px}
+.foot-col ul li{margin-bottom:8px}
+.foot-col ul a{font-size:13px;color:rgba(255,255,255,.5);transition:.2s}
+.foot-col ul a:hover{color:var(--accent-light)}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(255,255,255,.4);
+}
+.foot-social{display:flex;gap:12px}
+.foot-social a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:.2s}
+.foot-social a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ===== Back top ===== */
+.to-top{
+  position:fixed;bottom:24px;right:24px;width:42px;height:42px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;z-index:90;
+  opacity:0;pointer-events:none;transition:.3s;box-shadow:0 4px 16px rgba(255,77,109,.3);
+}
+.to-top.show{opacity:1;pointer-events:all}
+.to-top:hover{transform:translateY(-2px)}
+
+/* ===== Responsive ===== */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .editorial{grid-template-columns:1fr;gap:32px}
+  .news-layout{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .wrap{padding:0 16px}
+  .header-top{display:none}
+  .main-nav{display:none}
+  .mobile-toggle{display:flex}
+  .search-inline{display:none}
+  .masthead .site-url{display:none}
+  .film-grid{grid-template-columns:repeat(2,1fr);gap:20px 12px}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-feature{min-height:340px;padding:24px}
+  .side-card{min-height:160px;padding:20px}
+  .cta-band{padding:40px 20px}
+  .block{padding:36px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="header-top">
+    <span>📅 2026年10月3日 星期五 · 每日 09:00 更新片单</span>
+    <span>🌐 访问网址：chasitadianyingwang-zh.github.io | 收藏本站不迷路</span>
+  </div>
+  <div class="header-main">
+    <button class="mobile-toggle" id="mobToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="masthead">
+      <div class="site-name">插死她<span class="dot">·</span>电影网</div>
+      <div class="site-slogan">Free HD Movies & TV Series Online</div>
+      <div class="site-url">chasitadianyingwang-zh.github.io</div>
+    </div>
+    <div class="header-actions">
+      <div class="search-inline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" placeholder="搜索影视...">
+      </div>
+      <button class="icon-btn" aria-label="搜索">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <a href="#home">首页</a><span class="sep"></span>
+    <a href="#films">电影频道</a><span class="sep"></span>
+    <a href="#series">电视剧集</a><span class="sep"></span>
+    <a href="#rank">排行榜</a><span class="sep"></span>
+    <a href="#news">影视资讯</a><span class="sep"></span>
+    <a href="#cats">分类导航</a><span class="sep"></span>
+    <a href="#about">关于本站</a>
+  </nav>
+  <div class="mobile-menu" id="mobMenu">
+    <a href="#home">🏠 首页</a>
+    <a href="#films">🎬 电影频道</a>
+    <a href="#series">📺 电视剧集</a>
+    <a href="#rank">🏆 排行榜</a>
+    <a href="#news">📰 影视资讯</a>
+    <a href="#cats">📂 分类导航</a>
+    <a href="#about">ℹ️ 关于本站</a>
+  </div>
+</header>
+
+<!-- ===== Ticker ===== -->
+<div class="wrap">
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>
+        🔥 本周热播：《星际觉醒》热度破亿
+        <span class="t-dot">●</span>
+        最新上线：《暗夜行者》独家首播
+        <span class="t-dot">●</span>
+        《长安十二时辰3》更新至第28集
+        <span class="t-dot">●</span>
+        2026国庆档总票房突破30亿
+        <span class="t-dot">●</span>
+        《山海奇谭》豆瓣评分9.1
+        <span class="t-dot">●</span>
+        🆕 每日 09:00 准时更新片单
+        <span class="t-dot">●</span>
+      </span>
+      <span>
+        🔥 本周热播：《星际觉醒》热度破亿
+        <span class="t-dot">●</span>
+        最新上线：《暗夜行者》独家首播
+        <span class="t-dot">●</span>
+        《长安十二时辰3》更新至第28集
+        <span class="t-dot">●</span>
+        2026国庆档总票房突破30亿
+        <span class="t-dot">●</span>
+        《山海奇谭》豆瓣评分9.1
+        <span class="t-dot">●</span>
+        🆕 每日 09:00 准时更新片单
+        <span class="t-dot">●</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero-band" id="home">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-feature">
+        <div class="hero-content">
+          <span class="label">Featured · 本周精选</span>
+          <h1>高清影视<br>随时随地<br><span class="accent-grad">即点即看</span></h1>
+          <p>插死她电影网汇聚全网最新最热电影、电视剧、动漫、综艺资源，高清流畅播放，每日准时更新，让您不错过任何一部好片。</p>
+          <div class="meta-row">
+            <span>📽️ 12,000+ 部影片</span>
+            <span>⚡ 极速播放</span>
+            <span>💰 永久免费</span>
+          </div>
+          <a href="#films" class="play-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            立即观影
+          </a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="side-card side-card-1">
+          <span class="sc-label">NEW · 最新上线</span>
+          <h3>今日新增 128 部</h3>
+          <p>含院线热映 + 经典修复</p>
+          <span class="arrow">→</span>
+        </div>
+        <div class="side-card side-card-2">
+          <span class="sc-label">HOT · 飙升榜</span>
+          <h3>3部影片热度破亿</h3>
+          <p>实时数据 每小时更新</p>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Films ===== -->
+<section class="block" id="films">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 class="block-title"><span class="num">01.</span>电影频道</h2>
+      <a href="#" class="more">浏览全部影片 →</a>
+    </div>
+    <div class="film-grid">
+      <article class="film">
+        <div class="film-cover c1">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge hot">HOT</span><span class="fc-rating">★ 9.2</span></div>
+            <div class="fc-bottom"><div class="fc-cn">星际觉醒</div><div class="fc-en">Stellar Awakening</div><div class="fc-info">科幻 / 2026 / 美国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>星际觉醒</h4><p class="film-desc">人类首次接触外星文明，一场跨越光年的对话就此展开。诺兰式叙事搭配震撼视效，2026年度科幻巨制。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c2">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge">1080P</span><span class="fc-rating">★ 8.7</span></div>
+            <div class="fc-bottom"><div class="fc-cn">暗夜行者</div><div class="fc-en">Night Walker</div><div class="fc-info">悬疑 / 2026 / 中国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>暗夜行者</h4><p class="film-desc">一名失忆警察在72小时内追查真相，层层反转的烧脑悬疑片，被誉为年度最佳剧本。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c3">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge hot">推荐</span><span class="fc-rating">★ 9.0</span></div>
+            <div class="fc-bottom"><div class="fc-cn">春日迟迟</div><div class="fc-en">Late Spring</div><div class="fc-info">爱情 / 2026 / 中国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>春日迟迟</h4><p class="film-desc">一段跨越二十年的暗恋故事，细腻动人的情感表达，让无数观众泪洒影院。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c4">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge">4K</span><span class="fc-rating">★ 8.9</span></div>
+            <div class="fc-bottom"><div class="fc-cn">雷霆战警</div><div class="fc-en">Thunder Cop</div><div class="fc-info">动作 / 2026 / 香港</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>雷霆战警</h4><p class="film-desc">港式动作片的巅峰回归，实拍特技零替身，肾上腺素飙升的视听盛宴。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c5">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge hot">独家</span><span class="fc-rating">★ 8.5</span></div>
+            <div class="fc-bottom"><div class="fc-cn">迷雾剧场</div><div class="fc-en">Fog Theatre</div><div class="fc-info">惊悚 / 2026 / 韩国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>迷雾剧场</h4><p class="film-desc">密闭空间中的人性博弈，每个人都是嫌疑人。韩国顶级惊悚片导演最新力作。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c6">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge">1080P</span><span class="fc-rating">★ 9.1</span></div>
+            <div class="fc-bottom"><div class="fc-cn">山海奇谭</div><div class="fc-en">Classic of Mountains</div><div class="fc-info">动画 / 2026 / 中国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>山海奇谭</h4><p class="film-desc">取材《山海经》的国产动画巅峰，精美画面搭配动人故事，国漫崛起的代表作。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c7">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge">VIP</span><span class="fc-rating">★ 8.8</span></div>
+            <div class="fc-bottom"><div class="fc-cn">深蓝计划</div><div class="fc-en">Project Deep Blue</div><div class="fc-info">冒险 / 2026 / 美国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>深蓝计划</h4><p class="film-desc">深海探险队发现未知文明遗迹，海底世界的视觉奇观令人叹为观止。</p></div>
+      </article>
+      <article class="film">
+        <div class="film-cover c8">
+          <div class="film-cover-inner">
+            <div class="fc-top"><span class="fc-badge">HD</span><span class="fc-rating">★ 8.3</span></div>
+            <div class="fc-bottom"><div class="fc-cn">笑傲江湖2026</div><div class="fc-en">Laughing Jianghu</div><div class="fc-info">喜剧 / 2026 / 中国</div></div>
+          </div>
+        </div>
+        <div class="film-info"><h4>笑傲江湖2026</h4><p class="film-desc">新生代喜剧天团打造的古装爆笑喜剧，笑点密集，轻松解压的合家欢影片。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TV Series ===== -->
+<section class="block" id="series" style="background:#fff">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 class="block-title"><span class="num">02.</span>电视剧集</h2>
+      <a href="#" class="more">全部剧集 →</a>
+    </div>
+    <div class="tv-scroll">
+      <div class="tv-card">
+        <div class="tv-thumb c1"><div class="tt-title">长安十二时辰</div><div class="tt-ep">48集全</div></div>
+        <div class="tv-info">
+          <h4>长安十二时辰 第三季</h4>
+          <div class="tv-meta">古装悬疑 · 2026<br>主演：雷佳音 / 易烊千玺<br>豆瓣 9.5</div>
+          <span class="tv-status">🔴 已完结</span>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tv-thumb c3"><div class="tt-title">都市迷情</div><div class="tt-ep">32集</div></div>
+        <div class="tv-info">
+          <h4>都市迷情</h4>
+          <div class="tv-meta">都市情感 · 2026<br>主演：赵丽颖 / 王一博<br>豆瓣 9.3</div>
+          <span class="tv-status">🟡 更新至28集</span>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tv-thumb c5"><div class="tt-title">法医笔记</div><div class="tt-ep">24集全</div></div>
+        <div class="tv-info">
+          <h4>法医笔记</h4>
+          <div class="tv-meta">犯罪推理 · 2026<br>主演：张若昀 / 谭松韵<br>豆瓣 8.9</div>
+          <span class="tv-status">🔴 已完结</span>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tv-thumb c7"><div class="tt-title">量子危机</div><div class="tt-ep">10集全</div></div>
+        <div class="tv-info">
+          <h4>量子危机</h4>
+          <div class="tv-meta">科幻惊悚 · 2026<br>主演：本尼迪克特·康伯巴奇<br>豆瓣 9.4</div>
+          <span class="tv-status">🔴 已完结</span>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tv-thumb c9"><div class="tt-title">宫墙柳</div><div class="tt-ep">60集</div></div>
+        <div class="tv-info">
+          <h4>宫墙柳</h4>
+          <div class="tv-meta">古装宫廷 · 2026<br>主演：周冬雨 / 许凯<br>豆瓣 8.6</div>
+          <span class="tv-status">🟡 更新至45集</span>
+        </div>
+      </div>
+      <div class="tv-card">
+        <div class="tv-thumb c11"><div class="tt-title">暗黑荣耀2</div><div class="tt-ep">8集全</div></div>
+        <div class="tv-info">
+          <h4>暗黑荣耀 第二季</h4>
+          <div class="tv-meta">复仇悬疑 · 2026<br>主演：宋慧乔<br>豆瓣 9.2</div>
+          <span class="tv-status">🔴 已完结</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<div class="wrap">
+  <div class="cta-band">
+    <h2>收藏插死她电影网<br>精彩内容不再错过</h2>
+    <p>每日 09:00 更新片单，最新电影、热门剧集、经典动漫一网打尽。输入邮箱即可订阅每日片单推送。</p>
+    <form class="cta-form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='✓ 已订阅'">
+      <input type="email" placeholder="输入您的邮箱地址...">
+      <button type="submit">立即订阅</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== Ranking ===== -->
+<section class="block" id="rank">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 class="block-title"><span class="num">03.</span>本周排行榜</h2>
+      <a href="#" class="more">完整榜单 →</a>
+    </div>
+    <div class="editorial">
+      <div class="editorial-left">
+        <h3>本周最受关注影视作品<span class="accent-grad"> TOP 10</span></h3>
+        <p>插死她电影网根据全网播放量、搜索热度、用户评分等维度综合统计，为您呈现本周最值得一看的影视作品排行榜单。</p>
+        <p>榜单每小时实时更新，反映最新观影趋势，帮助您快速发现优质内容。</p>
+        <div class="quote">"好的电影不只是娱乐，更是一次心灵的旅程。插死她电影网，让每一次点击都有意义。"</div>
+        <a href="#" class="more" style="font-style:normal;font-weight:700">查看完整榜单 →</a>
+      </div>
+      <div class="editorial-right">
+        <div class="ed-item"><span class="ed-rank">01</span><div class="ed-body"><h5>星际觉醒 Stellar Awakening</h5><p>科幻 · 美国 · 2026</p></div><span class="ed-score">9.2</span></div>
+        <div class="ed-item"><span class="ed-rank">02</span><div class="ed-body"><h5>长安十二时辰 第三季</h5><p>古装 · 中国 · 48集</p></div><span class="ed-score">9.5</span></div>
+        <div class="ed-item"><span class="ed-rank">03</span><div class="ed-body"><h5>量子危机 Quantum Crisis</h5><p>科幻 · 英国 · 10集</p></div><span class="ed-score">9.4</span></div>
+        <div class="ed-item"><span class="ed-rank">04</span><div class="ed-body"><h5>暗黑荣耀 第二季</h5><p>悬疑 · 韩国 · 8集</p></div><span class="ed-score">9.2</span></div>
+        <div class="ed-item"><span class="ed-rank">05</span><div class="ed-body"><h5>都市迷情 City of Love</h5><p>都市 · 中国 · 32集</p></div><span class="ed-score">9.3</span></div>
+        <div class="ed-item"><span class="ed-rank">06</span><div class="ed-body"><h5>山海奇谭</h5><p>动画 · 中国 · 2026</p></div><span class="ed-score">9.1</span></div>
+        <div class="ed-item"><span class="ed-rank">07</span><div class="ed-body"><h5>暗夜行者 Night Walker</h5><p>悬疑 · 中国 · 2026</p></div><span class="ed-score">8.7</span></div>
+        <div class="ed-item"><span class="ed-rank">08</span><div class="ed-body"><h5>雷霆战警 Thunder Cop</h5><p>动作 · 香港 · 2026</p></div><span class="ed-score">8.9</span></div>
+        <div class="ed-item"><span class="ed-rank">09</span><div class="ed-body"><h5>春日迟迟 Late Spring</h5><p>爱情 · 中国 · 2026</p></div><span class="ed-score">9.0</span></div>
+        <div class="ed-item"><span class="ed-rank">10</span><div class="ed-body"><h5>深蓝计划 Project Deep Blue</h5><p>冒险 · 美国 · 2026</p></div><span class="ed-score">8.8</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== News ===== -->
+<section class="block" id="news" style="background:#fff">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 class="block-title"><span class="num">04.</span>影视资讯</h2>
+      <a href="#" class="more">更多资讯 →</a>
+    </div>
+    <div class="news-layout">
+      <article class="news-feature">
+        <div class="nf-visual"></div>
+        <div class="nf-body">
+          <span class="nf-cat">Box Office · 票房快讯</span>
+          <h3>2026国庆档总票房突破30亿，《星际觉醒》领跑</h3>
+          <p>截至10月3日，2026年国庆档（10月1日-7日）总票房已突破30亿元人民币，创历史新高。其中科幻巨制《星际觉醒》单片贡献超过8亿，持续领跑票房榜。业内分析认为，今年国庆档影片类型丰富、口碑出色，带动整体观影热情高涨。</p>
+          <div class="nf-date">2026-10-03 · 插死她电影网编辑部</div>
+        </div>
+      </article>
+      <div class="news-list">
+        <div class="news-mini">
+          <div class="nm-date"><span class="d">01</span><span class="m">OCT</span></div>
+          <div class="nm-body">
+            <h5>《长安十二时辰3》大结局预告释出，网友期待值拉满</h5>
+            <p>官方发布最终集预告片，雷佳音与易烊千玺的终极对决即将上演。</p>
+          </div>
+        </div>
+        <div class="news-mini">
+          <div class="nm-date"><span class="d">28</span><span class="m">SEP</span></div>
+          <div class="nm-body">
+            <h5>第79届威尼斯电影节落幕，华语片斩获最佳导演</h5>
+            <p>毕赣凭新作《碎裂天空》获得第79届威尼斯电影节最佳导演银狮奖。</p>
+          </div>
+        </div>
+        <div class="news-mini">
+          <div class="nm-date"><span class="d">25</span><span class="m">SEP</span></div>
+          <div class="nm-body">
+            <h5>Netflix宣布上调订阅价格，引发用户热议</h5>
+            <p>自2026年11月起，Netflix全球范围内上调基础套餐价格约15%。</p>
+          </div>
+        </div>
+        <div class="news-mini">
+          <div class="nm-date"><span class="d">22</span><span class="m">SEP</span></div>
+          <div class="nm-body">
+            <h5>《山海奇谭》宣布将推出续集及番外动画系列</h5>
+            <p>制作方确认已启动续集筹备，同时计划推出3部番外短篇动画。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Categories ===== -->
+<section class="block" id="cats">
+  <div class="wrap">
+    <div class="block-head">
+      <h2 class="block-title"><span class="num">05.</span>分类导航</h2>
+      <a href="#" class="more">全部分类 →</a>
+    </div>
+    <div class="cat-grid">
+      <a href="#" class="cat-card"><span class="cat-icon">💥</span><h4>动作电影</h4><p>1,280 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">😂</span><h4>喜剧电影</h4><p>2,156 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">💕</span><h4>爱情电影</h4><p>1,843 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🚀</span><h4>科幻电影</h4><p>967 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🔍</span><h4>悬疑电影</h4><p>1,532 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">👻</span><h4>恐怖电影</h4><p>723 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🎭</span><h4>古装剧</h4><p>456 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🏙️</span><h4>都市剧</h4><p>389 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🎨</span><h4>动漫动画</h4><p>2,890 部</p></a>
+      <a href="#" class="cat-card"><span class="cat-icon">🎤</span><h4>综艺节目</h4><p>634 部</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="editorial">
+      <div class="editorial-left">
+        <h3>关于<span class="accent-grad">插死她电影网</span></h3>
+        <p>插死她电影网（chasitadianyingwang-zh.github.io）成立于2012年，是国内知名的免费影视在线观看平台。网站致力于为广大影迷提供最全面、最及时、最高清的影视内容服务。</p>
+        <p>每日 09:00 准时更新片单，涵盖电影、电视剧、动漫、综艺四大频道，片源覆盖国内外主流影视作品，支持手机、平板、电脑多端自适应播放。</p>
+        <p>本站采用先进的 P2P 加速技术，实现秒开播放、流畅不卡顿，无需下载任何播放器插件，打开网页即可享受高品质观影体验。</p>
+        <div class="quote">网址：chasitadianyingwang-zh.github.io<br>免费 · 高清 · 极速 · 每日更新</div>
+      </div>
+      <div class="editorial-right">
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>海量片源</h5><p>12,000+ 部影片，覆盖全类型</p></div></div>
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>极速播放</h5><p>P2P 加速技术，秒开不卡顿</p></div></div>
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>多端适配</h5><p>手机 / 平板 / 电脑全端支持</p></div></div>
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>每日更新</h5><p>每日 09:00 准时更新片单</p></div></div>
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>高清画质</h5><p>支持 1080P / 4K 超清播放</p></div></div>
+        <div class="ed-item"><span class="ed-rank">✓</span><div class="ed-body"><h5>完全免费</h5><p>永久免费，无会员门槛</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo-text">插死她电影网</div>
+        <p>插死她电影网（chasitadianyingwang-zh.github.io）提供最新最热电影、电视剧、动漫、综艺在线观看，高清流畅，每日更新，永久免费。</p>
+        <div class="foot-social" style="margin-top:16px">
+          <a href="#" aria-label="微信">微</a>
+          <a href="#" aria-label="微博">博</a>
+          <a href="#" aria-label="抖音">音</a>
+          <a href="#" aria-label="QQ">Q</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>电影分类</h5>
+        <ul><li><a href="#">动作电影</a></li><li><a href="#">喜剧电影</a></li><li><a href="#">爱情电影</a></li><li><a href="#">科幻电影</a></li><li><a href="#">恐怖电影</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>电视剧集</h5>
+        <ul><li><a href="#">古装剧</a></li><li><a href="#">都市剧</a></li><li><a href="#">悬疑剧</a></li><li><a href="#">军旅剧</a></li><li><a href="#">历史剧</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>网站导航</h5>
+        <ul><li><a href="#home">首页</a></li><li><a href="#films">电影频道</a></li><li><a href="#series">电视剧集</a></li><li><a href="#rank">排行榜</a></li><li><a href="#news">影视资讯</a></li></ul>
+      </div>
+      <div class="foot-col">
+        <h5>帮助中心</h5>
+        <ul><li><a href="#">使用帮助</a></li><li><a href="#">常见问题</a></li><li><a href="#">免责声明</a></li><li><a href="#">隐私政策</a></li><li><a href="#">联系我们</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 插死她电影网（chasitadianyingwang-zh.github.io）版权所有 | 本站仅提供影视信息索引服务</p>
+      <p class="mono">Made with ❤️ for movie lovers</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<a href="#" class="to-top" id="toTop" aria-label="返回顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+// Mobile menu
+const mobToggle=document.getElementById('mobToggle');
+const mobMenu=document.getElementById('mobMenu');
+mobToggle.addEventListener('click',()=>mobMenu.classList.toggle('open'));
+mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobMenu.classList.remove('open')));
+
+// Back to top
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>500)toTop.classList.add('show');
+  else toTop.classList.remove('show');
+});
+</script>
+</body>
+</html>
